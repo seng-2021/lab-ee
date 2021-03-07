@@ -21,7 +21,9 @@ import mycrypt
     ("b", "O"),
     ("abc", "NOP"),
     ("abc123", 'NOP!"#'),
-    ("4", u'€')
+    ("4", u'€'),
+    ("?","+"),
+    (salasana,"22")
 ])
 def test_encode(test_input, expected):
     '''Verify that strings given above match the expected results'''
