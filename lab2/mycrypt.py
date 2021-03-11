@@ -13,7 +13,7 @@ def encode(s):
     errors = ["ä","ö","å","+"]
     
     for c in s:
-        if c in ["ä","ö","å","+"]:
+        if c in ['ä','ö','å','+']:
             raise ValueError
         elif c.isalpha():
             if c.islower():
