@@ -1,8 +1,10 @@
 import codecs
 
 def encode(s):
-    if not isinstance(s,str):
-        raise TypeError
+    try:
+        isinstance(s,str):
+    except TypeError:
+        raise
     origlen = len(s)
     crypted = ""
     digitmapping = dict(zip('1234567890!"#€%&/()=','!"#€%&/()=1234567890'))
