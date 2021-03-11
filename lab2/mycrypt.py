@@ -13,7 +13,7 @@ def encode(s):
     errors = ["ä","ö","å","+"]
     
     for c in s:
-        if c in ['ä','ö','å']:
+        if c in ['ä','ö','å','+']:
             raise ValueError
         elif c.isalpha():
             if c.islower():
@@ -24,8 +24,6 @@ def encode(s):
             crypted+=codecs.encode(c,'rot13')
         elif c in digitmapping:
           crypted+=digitmapping[c]
-        else:
-            raise ValueError
 
     return crypted[:origlen]
 
