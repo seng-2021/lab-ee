@@ -35,20 +35,20 @@ def test_encode_decode(test_input):
     assert(mycrypt.decode(mycrypt.encode(test_input))) == test_input
 
 
-@pytest.mark.parametrize("invalid_input", ['+','åäö'])
+@pytest.mark.parametrize("invalid_input", ['+','åäö','ä'])
 def test_invalid_char(invalid_input):
     '''Invalid characters should result in ValueError'''
     with pytest.raises(ValueError):
         mycrypt.encode(invalid_input)
 
-@pytest.mark.parametrize("invalid_input", ["a"*1200,"a"*56000])
+@pytest.mark.parametrize("invalid_input", ["a"*1200,"d"*56000])
 def test_invalid_char_length(invalid_input):
     '''Invalid long characters should result in ValueError'''
     with pytest.raises(ValueError):
         mycrypt.encode(invalid_input)        
         
         
-@pytest.mark.parametrize("invalid_input", [85756,12.123])
+@pytest.mark.parametrize("invalid_input", [85756,12.123,[2,3]])
 def test_invalid_types(invalid_input):
     '''Invalid parameter types should raise TypeError'''
     with pytest.raises(TypeError):
