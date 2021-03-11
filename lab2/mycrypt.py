@@ -24,7 +24,6 @@ def encode(s):
             crypted+=codecs.encode(c,'rot13')
         elif c in digitmapping:
           crypted+=digitmapping[c]
-
         
     return crypted[:origlen]
 
