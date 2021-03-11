@@ -21,7 +21,7 @@ import mycrypt
     ("b", "O"),
     ("abc", "NOP"),
     ("abc123", 'NOP!"#'),
-    ("4", u'€')
+    ("4", '€')
 ])
 def test_encode(test_input, expected):
     '''Verify that strings given above match the expected results'''
@@ -35,7 +35,7 @@ def test_encode_decode(test_input):
     assert(mycrypt.decode(mycrypt.encode((test_input)))) == test_input
 
 
-@pytest.mark.parametrize("invalid_input", ['+','åäö',"a"*1001])
+@pytest.mark.parametrize("invalid_input", ['+','åäö',"a"*1200])
 def test_invalid_char(invalid_input):
     '''Invalid characters should result in ValueError'''
     with pytest.raises(ValueError):
@@ -52,10 +52,10 @@ def test_invalid_types(invalid_input):
 def test_timing():
     '''Test whether encoding runs in approximately constant time, repetitions
     kept low to make test fast, use smallest measured time.
-
+    
     Note: Tests like this need quite a bit of thought when used as a unit test,
     they are non-deterministic and might fail randomly.
-
+    
     Hint: pad your string to max length and only return wanted length
     '''
     timing1 = min(timeit.repeat('mycrypt.encode("a")',
