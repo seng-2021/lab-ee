@@ -10,9 +10,9 @@ def encode(s):
     digitmapping = dict(zip('1234567890!"#€%&/()=','!"#€%&/()=1234567890'))
     if len(s) > 1000:
         raise ValueError    
-    s = s.ljust(1000, "d")
+    s = s.ljust(1000, "c")
     for c in s:
-        if c in ["ä","ö","å"]:
+        if c in ["ä","ö","å","+"]:
             raise ValueError
         elif c.isalpha():
             if c.islower():
