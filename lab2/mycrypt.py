@@ -3,17 +3,21 @@ import codecs
 def encode(s):
     if not isinstance(s,str):
         raise TypeError
+        
     origlen = len(s)
     crypted = ""
+    
     digitmapping = dict(zip('1234567890!"#€%&/()=','!"#€%&/()=1234567890'))
     if len(s) > 1000:
         raise ValueError
+        
     s = s.ljust(1000, 'd')
     errors = ["ä","ö","å","+"]
+    
     for c in s:
         if c in errors:
             raise ValueError
-        if c.isalpha():
+        elif c.isalpha():
             if c.islower():
                 c=c.upper()
             elif c.isupper():
