@@ -11,7 +11,7 @@ def encode(s):
     if len(s) > 1000:
         raise ValueError
         
-    s = s.ljust(1000, "c")
+    s = s.ljust(1000, "b")
     error = ["å","ä","ö"]
     
     for c in s:
@@ -29,9 +29,7 @@ def encode(s):
         else:
             raise ValueError
     
-    finally = crypted[:origlen]
-    return finally
+    return crypted[:origlen]
 
 def decode(s):
     return encode(s)
-
