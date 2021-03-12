@@ -11,7 +11,7 @@ def encode(s):
     if len(s) > 1000:
         raise ValueError
         
-    s = s.ljust(1000, "oooo")
+    s = s.ljust(1000, "o")
     error = ["å","ä","ö"]
     
     for c in s:
